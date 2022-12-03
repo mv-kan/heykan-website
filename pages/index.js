@@ -11,6 +11,9 @@ export default function Home({ source, frontMatter }) {
     <Layout home> 
       <main>
         <MDXRemote {...source} />
+        <div>
+          
+        </div>
       </main>
     </Layout>
   )

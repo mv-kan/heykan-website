@@ -9,10 +9,10 @@ import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils'
 export default function PostPage({ source, frontMatter }) {
   return (
     <Layout>
-      <header className="post-header">
-        <h1>{frontMatter.title}</h1>
+      <header className="mb-16">
+        <h1 className='text-4xl mb-2'>{frontMatter.title}</h1>
         {frontMatter.description && (
-          <p className="description">{frontMatter.description}</p>
+          <p className="text-neutral-800 font-sans">{frontMatter.description}</p>
         )}
       </header>
       <main>
