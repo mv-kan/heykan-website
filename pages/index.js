@@ -15,14 +15,13 @@ export default function Home({ source, frontMatter, postsMeta }) {
         <div>
           <h2>Blog</h2>
           {
+            
             postsMeta.map(meta => 
-              <div className='bg-white rounded p-6 mb-8 drop-shadow-md hover:drop-shadow-2xl hover:bg-neutral-50'>
-                <Link href={meta.slug} className='hover:no-underline font-sans'>
-                  <div className='text-3xl text-black mb-2'>{meta.title}</div>
-                  <div className='text-neutral-600'>{meta.description}</div>
-                  <div className='text-neutral-600 text-sm'>{meta.date}</div>
-                </Link>
-              </div>
+              <Link href={meta.slug} key={meta.slug} className='block bg-white rounded p-6 mb-8 drop-shadow-md hover:drop-shadow-2xl hover:bg-neutral-50 hover:no-underline font-sans'>
+                <div className='text-3xl text-black mb-2'>{meta.title}</div>
+                <div className='text-neutral-600'>{meta.description}</div>
+                <div className='text-neutral-600 text-sm'>{meta.date}</div>
+              </Link>
               )
           }
         </div>
