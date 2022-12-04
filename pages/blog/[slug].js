@@ -12,7 +12,10 @@ export default function PostPage({ source, frontMatter }) {
       <header className="mb-16">
         <h1 className='text-4xl mb-2'>{frontMatter.title}</h1>
         {frontMatter.description && (
-          <p className="text-neutral-800 font-sans">{frontMatter.description}</p>
+          <p className="text-neutral-600 font-sans">{frontMatter.description}</p>
+        )}
+        {frontMatter.date && (
+          <p className="text-neutral-600 font-sans">{frontMatter.date}</p>
         )}
       </header>
       <main>

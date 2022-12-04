@@ -3,9 +3,12 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
 @layer base {
+    html {
+    }
     body {
-        @apply bg-neutral-100 font-serif;
+        @apply bg-neutral-50 font-sans;
         font-size: 18px;
+
         /*font-family: 'Roboto', sans-serif;*/
     }
     a {

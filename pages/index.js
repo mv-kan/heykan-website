@@ -5,6 +5,7 @@ import { serialize } from 'next-mdx-remote/serialize'
 import path from 'path'
 import { postFilePaths, POSTS_PATH } from '../utils/mdxUtils'
 import Layout from '../components/layout';
+import Link from 'next/link';
 
 export default function Home({ source, frontMatter, postsMeta }) {
   return (
@@ -12,11 +13,15 @@ export default function Home({ source, frontMatter, postsMeta }) {
       <main>
         <MDXRemote {...source} />
         <div>
+          <h2>Blog</h2>
           {
             postsMeta.map(meta => 
-              <div>
-                <div>{meta.title}</div>
-                <div>{meta.description}</div>
+              <div className='bg-white rounded p-6 mb-8 drop-shadow-md hover:drop-shadow-2xl hover:bg-neutral-50'>
+                <Link href={meta.slug} className='hover:no-underline font-sans'>
+                  <div className='text-3xl text-black mb-2'>{meta.title}</div>
+                  <div className='text-neutral-600'>{meta.description}</div>
+                  <div className='text-neutral-600 text-sm'>{meta.date}</div>
+                </Link>
               </div>
               )
           }
@@ -30,7 +35,6 @@ const getPostMeta = async () => {
   const allPostMeta = []
   for (const postFile of postFilePaths) {
     const postFilePath = path.join(POSTS_PATH, postFile)
-    console.log(postFilePath)
 
     if (postFilePath === path.join(POSTS_PATH, `index.mdx`)) {
       continue;
@@ -38,9 +42,12 @@ const getPostMeta = async () => {
     const source = fs.readFileSync(postFilePath)
   
     const { content, data } = matter(source)
+    // link to blog post
+    const slug = postFile.replace(/\.mdx?$/, '')
+    data['slug'] = path.join('blog', slug)
     allPostMeta.push(data)
   }
-  console.log(allPostMeta)
+  allPostMeta.sort((a,b)=> b.date.localeCompare(a.date))
   return allPostMeta;
 }
 

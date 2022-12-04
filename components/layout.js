@@ -18,11 +18,11 @@ export default function Layout({ children, home }) {
           <>
             <Image
                 priority
-                src="/images/profile.jpg"
+                src="https://heykan-images-213453.s3.eu-central-1.amazonaws.com/profile.jpg"
                 className={'rounded-full object-cover w-48 h-48'}
                 height={200}
                 width={200}
-                alt=""
+                alt="profile"
             />
             <h1 className='text-4xl mt-4 mb-8 font-bold'>{name}</h1>
           </>
@@ -31,7 +31,7 @@ export default function Layout({ children, home }) {
             <Link href="/">
               <Image
                 priority
-                src="/images/profile.jpg"
+                src="https://heykan-images-213453.s3.eu-central-1.amazonaws.com/profile.jpg"
                 className={'rounded-full object-cover w-24 h-24'}
                 height={125}
                 width={125}
@@ -48,7 +48,7 @@ export default function Layout({ children, home }) {
       </header>
       <main>{children}</main>
       {!home && (
-        <div className=''>
+        <div className='mt-8'>
           <Link href="/">← Back to home</Link>
         </div>
       )}
