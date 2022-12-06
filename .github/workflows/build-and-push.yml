@@ -41,6 +41,4 @@ jobs:
           context: .
           push: true
           labels: ${{ steps.meta.outputs.labels }}
-          tags: |
-            ghcr.io/username/package:latest
-            ghcr.io/username/package:${{ github.sha }}
+          tags: ${{ steps.meta.outputs.tags }}
