@@ -41,4 +41,4 @@ jobs:
           context: .
           push: true
           labels: ${{ steps.meta.outputs.labels }}
-          tags: latest
+          tags:  ${{ github.actor }}/${{ env.IMAGE_NAME }}:latest,${{ github.actor }}/${{ env.IMAGE_NAME }}:${{ steps.vars.outputs.sha_short }} 
